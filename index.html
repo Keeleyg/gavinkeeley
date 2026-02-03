@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gavin Keeley | Leadership Author & Advisor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #f5d000;
+            --yellow-light: #fff06a;
+            --black: #0a0a0a;
+            --off-black: #1a1a1a;
+            --white: #ffffff;
+            --grey: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.25rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--yellow);
+            z-index: 1000;
+            border-bottom: 3px solid var(--black);
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 4rem 4rem;
+            background: var(--yellow);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            color: var(--black);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.15s forwards;
+        }
+
+        .hero-purpose {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--black);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.3s forwards;
+        }
+
+        .hero-purpose-quote {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--off-black);
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--black);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.45s forwards;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            color: var(--off-black);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.6s forwards;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.75s forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--yellow);
+            border: 3px solid var(--black);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--black);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 3px solid var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--black);
+            color: var(--yellow);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-eyebrow {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--grey);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--grey);
+        }
+
+        /* Vision Section */
+        .vision-section {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 4rem;
+        }
+
+        .vision-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-statement {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: var(--white);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: var(--yellow);
+            border: 3px solid var(--black);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 0 var(--black);
+        }
+
+        .value-letter {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .value-definition {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--off-black);
+            margin-bottom: 1.25rem;
+        }
+
+        .value-quote {
+            font-size: 0.85rem;
+            color: var(--off-black);
+            line-height: 1.5;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.15);
+        }
+
+        .value-quote-author {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        /* Book Section */
+        .book-section {
+            background: var(--black);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-content {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .book-image {
+            text-align: center;
+        }
+
+        .book-cover {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease;
+        }
+
+        .book-cover:hover {
+            transform: translateY(-10px) rotate(-2deg);
+        }
+
+        .book-details h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--yellow);
+        }
+
+        .book-tagline {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1.5rem;
+        }
+
+        .book-quote {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--yellow);
+            border-left: 4px solid var(--yellow);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .book-philosophy {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--yellow);
+            margin-bottom: 2rem;
+        }
+
+        .book-section .btn-primary {
+            background: var(--yellow);
+            color: var(--black);
+            border-color: var(--yellow);
+        }
+
+        .book-section .btn-primary:hover {
+            background: var(--yellow-light);
+            border-color: var(--yellow-light);
+        }
+
+        /* About Section */
+        .about-section {
+            background: #f8f8f8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--off-black);
+        }
+
+        .credentials-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .credentials-list li {
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--black);
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .credentials-list li::before {
+            content: '→';
+            color: var(--black);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            background: var(--white);
+            border: 3px solid var(--black);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: var(--yellow);
+            box-shadow: 8px 8px 0 var(--black);
+            transform: translate(-4px, -4px);
+        }
+
+        .service-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .service-card p {
+            color: var(--off-black);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: var(--black);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--yellow);
+            border-top: 3px solid var(--black);
+            border-bottom: 3px solid var(--black);
+        }
+
+        .testimonial {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--black);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-family: 'Oswald', sans-serif;
+            font-size: 8rem;
+            position: absolute;
+            top: -3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--black);
+            opacity: 0.1;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+
+        .testimonial-role {
+            color: var(--off-black);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-section .section-eyebrow {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .contact-section .section-title {
+            color: var(--yellow);
+        }
+
+        .contact-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method a {
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.25rem;
+        }
+
+        .contact-method a:hover {
+            color: var(--yellow);
+            border-bottom-color: var(--yellow);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.6);
+            padding: 2rem 4rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .book-content,
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .book-quote {
+                text-align: left;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials-list {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            section {
+                padding: 4rem 2rem;
+            }
+            
+            .hero {
+                padding: 6rem 2rem 4rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .value-quote {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Gavin Keeley</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#values">Values</a></li>
+            <li><a href="#book">Book</a></li>
+            <li><a href="#services">Work With Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Constantly Curious</p>
+            <h1>Lead On<br>Purpose</h1>
+            <p class="hero-purpose">My purpose is to achieve what is thought to be impossible</p>
+            <p class="hero-purpose-quote">"Impossible is a word to be found only in the dictionary of fools."<br>— Napoleon Bonaparte</p>
+            <p class="hero-text">With 40 years of technology and business leadership across four continents, I help leaders replace dogma with evidence and pretence with competence. Evidence first. Values always. Dogma never.</p>
+            <div class="cta-group">
+                <a href="https://lead-onpurpose.com" class="btn btn-primary">Get the Book</a>
+                <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-section">
+        <p class="vision-label">My Vision</p>
+        <h2 class="vision-statement">To create a world where people are living their dreams</h2>
+    </section>
+
+    <section class="values-section" id="values">
+        <div class="section-header">
+            <p class="section-eyebrow">The Foundation of Intentional Leadership</p>
+            <h2 class="section-title">My Values</h2>
+            <p class="section-subtitle">Evidence first. Values always. Dogma never.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-letter">C</div>
+                <h3>Curiosity</h3>
+                <p class="value-definition">Compulsion to seek truth</p>
+                <p class="value-quote">"Once you eliminate the impossible, whatever remains, no matter how improbable, must be the truth."<span class="value-quote-author">— Sherlock Holmes</span></p>
+            </div>
+            <div class="value-card">
+                <div class="value-letter">H</div>
+                <h3>Humility</h3>
+                <p class="value-definition">Strong views loosely held</p>
+                <p class="value-quote">"Humility is the foundation of all the other virtues hence, in the soul in which this virtue does not exist there cannot be any other virtue except in mere appearance."<span class="value-quote-author">— Saint Augustine</span></p>
+            </div>
+            <div class="value-card">
+                <div class="value-letter">A</div>
+                <h3>Action</h3>
+                <p class="value-definition">Explore and validate through experimentation</p>
+                <p class="value-quote">"A good plan, violently executed now, is better than a perfect plan next week."<span class="value-quote-author">— George S. Patton</span></p>
+            </div>
+            <div class="value-card">
+                <div class="value-letter">C</div>
+                <h3>Care</h3>
+                <p class="value-definition">Consider the lasting impact</p>
+                <p class="value-quote">"One must care about a world one will not see."<span class="value-quote-author">— Bertrand Russell</span></p>
+            </div>
+            <div class="value-card">
+                <div class="value-letter">V</div>
+                <h3>Velocity</h3>
+                <p class="value-definition">Fast to first</p>
+                <p class="value-quote">"Second place is the first loser."<span class="value-quote-author">— Enzo Ferrari</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-section" id="book">
+        <div class="book-content">
+            <div class="book-image">
+                <img src="book-cover.png" alt="Lead On Purpose by Gavin Keeley" class="book-cover">
+            </div>
+            <div class="book-details">
+                <h2>Lead On Purpose</h2>
+                <p class="book-tagline">Intentional Leadership in a World of Chaos</p>
+                <p class="book-description">Here's the truth I've figured out: most leaders have no idea what they're doing. They were never trained. They got promoted because they were good at something else, handed a team, and left to figure it out.</p>
+                <p class="book-description">Lead On Purpose doesn't just challenge conventional leadership wisdom. It exposes why it was always destined to fail. Friedman's doctrine is dead. Classical management theory was built for a world that no longer exists.</p>
+                <p class="book-quote">"You are currently experiencing the fastest rate of change in your life, but it will be the slowest you experience for the rest of your lifetime."</p>
+                <p class="book-description">How prepared do you feel to lead through that? This book offers a different path: building an invincible culture that replaces dogma with evidence and pretence with competence.</p>
+                <p class="book-philosophy">Evidence first. Values always. Dogma never.</p>
+                <a href="https://lead-onpurpose.com" class="btn btn-primary">Learn More at lead-onpurpose.com →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Who I Am</h3>
+                <p>I've spent forty years watching leaders fail in predictable ways. Not because they lacked intelligence or ambition, but because they were never actually trained to lead. I wrote this book because I got tired of staying quiet about it.</p>
+                <p>My scientific training established an evidence-based approach to decision-making and a commitment to holding strong views loosely. I've held executive roles at Suncorp, Aviva PLC, and Hollard Insurance, and founded and led technology companies across North America, Europe, and Asia.</p>
+                <p>Today, I'm Partner at Circle Leadership Global and Tractor Ventures. I advise boards and leadership teams, serve as Adjunct Professor at Queensland University of Technology, and have called the Sunshine Coast home with my family for the last 20 years.</p>
+                <p>I remain convinced that leadership can be learned, and that most of what passes for leadership wisdom is comfortable fiction.</p>
+            </div>
+            <div class="about-credentials">
+                <h3>Recognition</h3>
+                <ul class="credentials-list">
+                    <li>Queensland Pearcey Entrepreneur Hall of Fame</li>
+                    <li>Australian Computer Society Hall of Fame</li>
+                    <li>GAICD, FACS, CP, ACEcD certified</li>
+                    <li>Inaugural Chair, Regional Development Australia (federal ministerial appointment)</li>
+                    <li>Led seven-year campaign for Queensland's undersea fibre optic connection</li>
+                    <li>Adjunct Professor, Queensland University of Technology</li>
+                    <li>Co-founder, Group X (now Federal Digital Careers program)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <p class="section-eyebrow">If you're tired of pretending you've got it figured out</p>
+            <h2 class="section-title">Work With Me</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Keynote Speaking</h3>
+                <p>Talks that challenge conventional thinking on leadership, technology transformation, and building businesses that actually work. No platitudes. No formulas. Just evidence.</p>
+                <a href="#contact" class="service-link">Book Gavin →</a>
+            </div>
+            <div class="service-card">
+                <h3>Leadership Workshops</h3>
+                <p>Interactive sessions built on the Lead On Purpose and Circle Leadership philosophy and practices. Practical tools for delegation, judgment, and coaching your teams through chaos.</p>
+                <a href="https://lead-onpurpose.com" class="service-link">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <h3>Board Advisory</h3>
+                <p>Strategic counsel for boards navigating technology disruption, governance challenges, and organisational transformation. Evidence-based. Values-driven.</p>
+                <a href="#contact" class="service-link">Start a Conversation →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="section-header">
+            <p class="section-eyebrow">What Others Say</p>
+            <h2 class="section-title">Testimonials</h2>
+        </div>
+        <div class="testimonial">
+            <p class="testimonial-quote">Gavin brings a rare combination of deep technical expertise and genuine leadership wisdom. He doesn't just talk about transformation—he's lived it across multiple industries and continents.</p>
+            <p class="testimonial-author">— Add your testimonials here</p>
+            <p class="testimonial-role">Position, Company</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <p class="section-eyebrow">Ready to Lead On Purpose?</p>
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">Whether you're looking for a speaker, advisor, or want to start a conversation about leadership that actually works.</p>
+        </div>
+        <div class="contact-methods">
+            <div class="contact-method">
+                <a href="https://www.linkedin.com/in/gavinkeeley/" target="_blank">
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            <div class="contact-method">
+                <a href="mailto:gavin@gavinkeeley.com">
+                    <span>gavin@gavinkeeley.com</span>
+                </a>
+            </div>
+            <div class="contact-method">
+                <a href="https://lead-onpurpose.com" target="_blank">
+                    <span>lead-onpurpose.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Gavin Keeley. Partner at <a href="https://www.circleleadershipglobal.com" target="_blank">Circle Leadership Global</a> & <a href="https://tractorventures.com" target="_blank">Tractor Ventures</a></p>
+        <p style="margin-top: 0.5rem;">Sunshine Coast, Queensland, Australia</p>
+    </footer>
+</body>
+</html>
