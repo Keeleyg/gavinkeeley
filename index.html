@@ -359,6 +359,53 @@
             transform: translateY(-10px) rotate(-2deg);
         }
 
+        /* Culture Is Hard - companion book cover placeholder (until cover art exists) */
+        .cih-cover {
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 2 / 3;
+            margin: 0 auto;
+            background: var(--black);
+            border: 2px solid var(--yellow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem 1.6rem;
+            text-align: left;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease;
+        }
+
+        .cih-cover:hover {
+            transform: translateY(-10px) rotate(-2deg);
+        }
+
+        .cih-cover .k {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--yellow);
+        }
+
+        .cih-cover .t {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 2.6rem;
+            line-height: 0.95;
+            color: var(--white);
+            margin: auto 0;
+        }
+
+        .cih-cover .a {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            color: var(--yellow);
+        }
+
         .book-details h2 {
             font-family: 'Oswald', sans-serif;
             font-size: 3rem;
@@ -843,7 +890,7 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#values">Values</a></li>
-            <li><a href="#book">Book</a></li>
+            <li><a href="#book">Books</a></li>
             <li><a href="#services">Work With Me</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -922,6 +969,24 @@
                 <p class="book-description">How prepared do you feel to lead through that? This book offers a different path: building an invincible culture that replaces dogma with evidence and pretence with competence.</p>
                 <p class="book-philosophy">Evidence first. Values always. Dogma never.</p>
                 <a href="https://lead-onpurpose.com" class="btn btn-primary">Learn More at lead-onpurpose.com →</a>
+            </div>
+        </div>
+
+        <div class="book-content" style="margin-top: 5rem;">
+            <div class="book-image">
+                <div class="cih-cover" role="img" aria-label="Culture Is Hard by Gavin Keeley">
+                    <span class="k">Vidimus &middot; 2026</span>
+                    <span class="t">Culture<br>Is Hard</span>
+                    <span class="a">Gavin Keeley</span>
+                </div>
+            </div>
+            <div class="book-details">
+                <h2>Culture Is Hard</h2>
+                <p class="book-tagline">The Companion to Lead On Purpose</p>
+                <p class="book-description">Lead On Purpose was about the leader. Culture Is Hard is about the organisation: what happens when one person's intention has to become ten thousand people's ordinary Tuesday.</p>
+                <p class="book-quote">"Culture is the residue of decisions, and residue does not lie."</p>
+                <p class="book-description">The soft era is over. AI now executes the culture you actually have, not the one on the poster, and the courts have started jailing the executives who build degrading ones.</p>
+                <a href="https://culture-ishard.com" class="btn btn-primary">Read more at culture-ishard.com →</a>
             </div>
         </div>
     </section>
