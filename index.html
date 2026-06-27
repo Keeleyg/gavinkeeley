@@ -555,6 +555,177 @@
             margin-bottom: 2rem;
         }
 
+        /* Events Section */
+        .events-section {
+            background: var(--white);
+            border-top: 3px solid var(--black);
+        }
+
+        .events-list {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .events-group-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--grey);
+            margin: 1.5rem 0 -0.25rem;
+        }
+
+        .events-group-label:first-child {
+            margin-top: 0;
+        }
+
+        .event-card {
+            display: flex;
+            gap: 1.75rem;
+            align-items: flex-start;
+            padding: 2rem;
+            border: 3px solid var(--black);
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .event-card.is-upcoming {
+            background: var(--yellow);
+            box-shadow: 8px 8px 0 var(--black);
+        }
+
+        .event-card.is-past {
+            opacity: 0.6;
+        }
+
+        .event-card.is-past:hover {
+            opacity: 1;
+        }
+
+        .event-date {
+            flex-shrink: 0;
+            width: 92px;
+            text-align: center;
+            border: 3px solid var(--black);
+            background: var(--white);
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.1;
+        }
+
+        .event-card.is-upcoming .event-date {
+            background: var(--black);
+            color: var(--yellow);
+        }
+
+        .event-date .month {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.35rem 0;
+            border-bottom: 3px solid var(--black);
+        }
+
+        .event-card.is-upcoming .event-date .month {
+            border-bottom-color: var(--yellow);
+        }
+
+        .event-date .day {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            padding: 0.3rem 0 0;
+        }
+
+        .event-date .year {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--grey);
+            padding-bottom: 0.3rem;
+        }
+
+        .event-card.is-upcoming .event-date .year {
+            color: var(--yellow);
+        }
+
+        .event-body {
+            flex: 1;
+        }
+
+        .event-badge {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.2rem 0.7rem;
+            margin-bottom: 0.75rem;
+            border: 2px solid var(--black);
+        }
+
+        .event-card.is-upcoming .event-badge {
+            background: var(--black);
+            color: var(--yellow);
+        }
+
+        .event-card.is-past .event-badge {
+            background: var(--white);
+            color: var(--grey);
+            border-color: var(--grey);
+        }
+
+        .event-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--black);
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .event-meta {
+            color: var(--off-black);
+            font-size: 0.98rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .event-meta span {
+            display: block;
+        }
+
+        .event-link {
+            color: var(--black);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 3px solid var(--black);
+            padding-bottom: 0.15rem;
+            transition: gap 0.3s ease;
+        }
+
+        .event-link:hover {
+            gap: 1rem;
+        }
+
+        .events-empty {
+            text-align: center;
+            color: var(--grey);
+            font-style: italic;
+        }
+
         /* Testimonials Carousel */
         .testimonials-section {
             background: var(--yellow);
@@ -815,6 +986,17 @@
             .section-title {
                 font-size: 2.2rem;
             }
+
+            .event-card {
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+
+            .event-date {
+                width: auto;
+                align-self: flex-start;
+                padding: 0 0.5rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -845,6 +1027,7 @@
             <li><a href="#values">Values</a></li>
             <li><a href="#book">Books</a></li>
             <li><a href="#services">Work With Me</a></li>
+            <li><a href="#events">Events</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -991,6 +1174,15 @@
         </div>
     </section>
 
+    <section class="events-section" id="events">
+        <div class="section-header">
+            <p class="section-eyebrow">Where We Can Meet in Person</p>
+            <h2 class="section-title">Events</h2>
+            <p class="section-subtitle">Talks, breakfasts, and workshops where you can hear Gavin live. Upcoming events are highlighted at the top.</p>
+        </div>
+        <div class="events-list" id="eventsList"></div>
+    </section>
+
     <section class="community-section">
         <div class="section-header">
             <p class="section-eyebrow">For Business Builders Who Know Change Never Stops</p>
@@ -1111,6 +1303,73 @@
         }, { passive: true });
 
         startAutoplay();
+
+        // ===== Events =====
+        // To add an event, copy a line below. Keep `date` as YYYY-MM-DD.
+        // Past/upcoming status, sorting, and highlighting are handled automatically.
+        const EVENTS = [
+            {
+                title: "Sunshine Coast CEO Business Breakfast — It's Time to Lead Different",
+                date: "2026-07-22",
+                time: "7:30 – 11:00 AM",
+                location: "The Wharf Events Room, Mooloolaba",
+                url: "https://www.circleleadershipglobal.com/ITTLD-SC"
+            }
+        ];
+
+        (function renderEvents() {
+            const list = document.getElementById('eventsList');
+            if (!list) return;
+
+            const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const parsed = EVENTS.map(function(e) {
+                const d = new Date(e.date + 'T00:00:00');
+                return { data: e, date: d, upcoming: d >= today };
+            });
+
+            // Upcoming: soonest first (highlighted, on top). Past: most recent first.
+            const upcoming = parsed.filter(function(e) { return e.upcoming; })
+                .sort(function(a, b) { return a.date - b.date; });
+            const past = parsed.filter(function(e) { return !e.upcoming; })
+                .sort(function(a, b) { return b.date - a.date; });
+
+            function card(e) {
+                const d = e.date;
+                const metaParts = [];
+                if (e.data.time) metaParts.push('<span>' + e.data.time + '</span>');
+                if (e.data.location) metaParts.push('<span>' + e.data.location + '</span>');
+                return '' +
+                    '<div class="event-card ' + (e.upcoming ? 'is-upcoming' : 'is-past') + '">' +
+                        '<div class="event-date">' +
+                            '<span class="month">' + MONTHS[d.getMonth()] + '</span>' +
+                            '<span class="day">' + d.getDate() + '</span>' +
+                            '<span class="year">' + d.getFullYear() + '</span>' +
+                        '</div>' +
+                        '<div class="event-body">' +
+                            '<span class="event-badge">' + (e.upcoming ? 'Upcoming' : 'Past Event') + '</span>' +
+                            '<h3 class="event-title">' + e.data.title + '</h3>' +
+                            '<div class="event-meta">' + metaParts.join('') + '</div>' +
+                            (e.data.url ? '<a href="' + e.data.url + '" class="event-link" target="_blank" rel="noopener">' + (e.upcoming ? 'Details &amp; Register' : 'View Event') + ' →</a>' : '') +
+                        '</div>' +
+                    '</div>';
+            }
+
+            let html = '';
+            if (upcoming.length) {
+                html += '<p class="events-group-label">Upcoming</p>';
+                html += upcoming.map(card).join('');
+            } else {
+                html += '<p class="events-empty">No upcoming events scheduled right now — check back soon.</p>';
+            }
+            if (past.length) {
+                html += '<p class="events-group-label">Past Events</p>';
+                html += past.map(card).join('');
+            }
+            list.innerHTML = html;
+        })();
     </script>
 </body>
 </html>
